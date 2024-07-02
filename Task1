@@ -1,0 +1,100 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+struct Question {
+    string questionText;
+    vector<string> options;
+    int correctAnswerIndex;
+};
+
+class QuizGame {
+public:
+    QuizGame();
+    void run();
+
+private:
+    vector<Question> questions;
+    int score;
+
+    void displayQuestion(const Question& question);
+    void processAnswer(int userAnswer, const Question& question);
+    void displayScore() const;
+    void displayFeedback() const;
+};
+
+QuizGame::QuizGame() : score(0) {
+    // Initialize the questions
+    questions = {
+        {"What is the time complexity of binary search?", {"1. O(n)", "2. O(log n)", "3. O(n^2)", "4. O(1)"}, 1},
+        {"Which data structure uses LIFO (Last In, First Out)?", {"1. Queue", "2. Stack", "3. Array", "4. Linked List"}, 1},
+        {"What is the main use of polymorphism in OOP?", {"1. Code reuse", "2. Method overloading", "3. Dynamic method binding", "4. Inheritance"}, 2},
+        {"What is the output of the expression 3 + 2 * 2 in C++?", {"1. 10", "2. 7", "3. 6", "4. 5"}, 1},
+        {"Which programming language is known as the language of the web?", {"1. Python", "2. C++", "3. JavaScript", "4. Java"}, 2},
+        {"What does SQL stand for?", {"1. Structured Query Language", "2. Simple Query Language", "3. Sequential Query Language", "4. Syntax Query Language"}, 0},
+        {"Which of the following is not a programming paradigm?", {"1. Procedural", "2. Object-Oriented", "3. Functional", "4. Linear"}, 3},
+        {"Which algorithm is used to find the shortest path in a graph?", {"1. QuickSort", "2. MergeSort", "3. Dijkstra's Algorithm", "4. Binary Search"}, 2},
+        {"What is the main advantage of using a linked list over an array?", {"1. Faster access to elements", "2. Dynamic size", "3. Less memory usage", "4. Easier to sort"}, 1},
+        {"Which of the following is a NoSQL database?", {"1. MySQL", "2. PostgreSQL", "3. MongoDB", "4. SQLite"}, 2}
+    };
+}
+
+void QuizGame::run() {
+    for (const auto& question : questions) {
+        displayQuestion(question);
+        int userAnswer;
+        do{
+            cout << "Your answer (1-4): ";
+            cin >> userAnswer;
+            if(userAnswer>0 && userAnswer<5)
+                break;
+            cout << "Invalid choice! ";
+        }while(true);
+        processAnswer(userAnswer - 1, question); // Adjust for 0-based index
+    }
+    displayScore();
+    displayFeedback();
+}
+
+void QuizGame::displayQuestion(const Question& question) {
+    cout << question.questionText << endl;
+    for (const auto& option : question.options) {
+        cout << option << endl;
+    }
+}
+
+void QuizGame::processAnswer(int userAnswer, const Question& question) {
+    if (userAnswer == question.correctAnswerIndex) {
+        cout << "Correct!\n";
+        score++;
+    } else {
+        cout << "Wrong! The correct answer was " << question.options[question.correctAnswerIndex] << "\n";
+    }
+    cout << "-----------------------------\n";
+}
+
+void QuizGame::displayScore() const {
+    cout << "Your final score is: " << score << " out of " << questions.size() << endl;
+}
+
+void QuizGame::displayFeedback() const {
+    double percentage = (static_cast<double>(score) / questions.size()) * 100;
+    cout << "Your score percentage: " << percentage << "%\n";
+
+    if (percentage >= 90) {
+        cout << "Excellent!\n";
+    } else if (percentage >= 70) {
+        cout << "Good job!\n";
+    } else if (percentage >= 40) {
+        cout << "Fair effort!\n";
+    } else {
+        cout << "Better luck next time!\n";
+    }
+}
+
+int main() {
+    QuizGame quiz;
+    quiz.run();
+    return 0;
+}
