@@ -7,6 +7,11 @@ Mentor: Neelam Harish
 
 # Overview of the Project
 
+#### Project: QUIZ GAME
+![image](https://github.com/GZ-Starter/CODTECH-Task1/assets/126936908/29e22b64-cdb8-4105-bb2c-b996202e811e)
+
+![image](https://github.com/GZ-Starter/CODTECH-Task1/assets/126936908/f8698833-8438-4872-bcf2-8ecbd63e0c39)
+
 #### Objectives
 1. **Develop a Console-Based Quiz Game**: Create an interactive quiz game that runs in a console environment, allowing users to answer multiple-choice questions and receive feedback on their performance.
 2. **Implement Basic Game Mechanics**: Implement the fundamental mechanics of a quiz game, including question presentation, answer input, validation, score tracking, and feedback provision.
