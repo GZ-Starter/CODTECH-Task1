@@ -6,7 +6,6 @@ Duration: June 25th to July 25th, 2024
 Mentor: Neelam Harish 
 
 # Overview of the Project
----
 
 #### Objectives
 1. **Develop a Console-Based Quiz Game**: Create an interactive quiz game that runs in a console environment, allowing users to answer multiple-choice questions and receive feedback on their performance.
