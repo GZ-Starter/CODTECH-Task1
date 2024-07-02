@@ -5,7 +5,7 @@ Domain: C++ PROGRAMMING
 Duration: June 25th to July 25th, 2024
 Mentor: SRAVANI GOUNI# CODTECH-Task1
 
-Overview of the Project
+#####Overview of the Project
 
 ---
 
@@ -68,4 +68,4 @@ Overview of the Project
 ---
 
 #### Conclusion
-The C++ Quiz Game project successfully met its objectives by creating an engaging and functional quiz game. The project reinforced key programming concepts and demonstrated effective use of C++ for developing console-based applications. The insights gained from this project can be applied to future C++ projects, particularly in game development and interactive applications.
+The C++ Quiz project successfully met its objectives by creating an engaging and functional quiz game. The project reinforced key programming concepts and demonstrated effective use of C++ for developing console-based applications. The insights gained from this project can be applied to future C++ projects, particularly in game development and interactive applications.
