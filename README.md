@@ -1,11 +1,11 @@
-Name: SHASHANK
-Company: CODTECH IT SOLUTIONS PVT.LTD
-ID: CT4CPP3337
-Domain: C++ PROGRAMMING
-Duration: June 25th to July 25th, 2024
-Mentor: SRAVANI GOUNI# CODTECH-Task1
+Name: SHASHANK  
+Company: CODTECH IT SOLUTIONS PVT.LTD  
+ID: CT4CPP3337  
+Domain: C++ PROGRAMMING  
+Duration: June 25th to July 25th, 2024  
+Mentor: SRAVANI GOUNI# CODTECH-Task1  
 
-#####Overview of the Project
+# Overview of the Project
 
 ---
 
