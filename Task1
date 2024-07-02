@@ -22,6 +22,7 @@ private:
     void processAnswer(int userAnswer, const Question& question);
     void displayScore() const;
     void displayFeedback() const;
+    bool isValidInput(string input);
 };
 
 QuizGame::QuizGame() : score(0) {
@@ -43,18 +44,26 @@ QuizGame::QuizGame() : score(0) {
 void QuizGame::run() {
     for (const auto& question : questions) {
         displayQuestion(question);
+        string userInput;
         int userAnswer;
-        do{
+
+        while (true) {
             cout << "Your answer (1-4): ";
-            cin >> userAnswer;
-            if(userAnswer>0 && userAnswer<5)
-                break;
+            cin >> userInput;
+            if (isValidInput(userInput)) {
+                userAnswer = stoi(userInput);
+                if (userAnswer >= 1 && userAnswer <= 4) break;
+            }
             cout << "Invalid choice! ";
-        }while(true);
+        }
         processAnswer(userAnswer - 1, question); // Adjust for 0-based index
     }
     displayScore();
     displayFeedback();
+}
+
+bool QuizGame::isValidInput(string input) {
+    return input.length() == 1 && isdigit(input[0]);
 }
 
 void QuizGame::displayQuestion(const Question& question) {
@@ -69,7 +78,7 @@ void QuizGame::processAnswer(int userAnswer, const Question& question) {
         cout << "Correct!\n";
         score++;
     } else {
-        cout << "Wrong! The correct answer was " << question.options[question.correctAnswerIndex] << "\n";
+        cout << "Wrong! The correct answer was option " << question.correctAnswerIndex + 1 << ": " << question.options[question.correctAnswerIndex] << "\n";
     }
     cout << "-----------------------------\n";
 }
